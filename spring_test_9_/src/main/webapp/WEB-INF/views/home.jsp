@@ -11,12 +11,12 @@
 </h1>
 
 <c:if test="${not empty sessionScope.member}">
-	<a href="./board/boardList">boardList</a>
+	<a href="./board/boardList?curPage=1">boardList</a>
 	<a href="./member/logout">LOGOUT</a>
 </c:if>
 
 <c:if test="${empty member}">
-	<a href="./board/boardList">boardList</a>
+	<a href="./board/boardList?curPage=1">boardList</a>
 	<a href="./member/loginForm">LOGIN</a>
 </c:if>
 

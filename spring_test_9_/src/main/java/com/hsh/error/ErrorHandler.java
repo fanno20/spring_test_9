@@ -6,7 +6,6 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 
 @ControllerAdvice
 public class ErrorHandler {
-	
 	@ExceptionHandler(Exception.class)
 	public String errorHandler(Exception e, Model model){/*ModelAndView*/
 		e.printStackTrace();
@@ -17,5 +16,4 @@ public class ErrorHandler {
 		model.addAttribute("error", "error22");
 		return "error/error500";
 	}
-	
 }

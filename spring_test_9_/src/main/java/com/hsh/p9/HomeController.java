@@ -27,7 +27,6 @@ public class HomeController {
 	 */
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
-		System.out.println("Home page start");
 		
 		logger.info("Welcome home! The client locale is {}.", locale);
 		

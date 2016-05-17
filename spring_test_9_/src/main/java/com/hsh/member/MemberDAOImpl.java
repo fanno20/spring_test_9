@@ -10,7 +10,7 @@ public class MemberDAOImpl implements MemberDAO{
 
 	@Inject
 	private SqlSession sqlSession;
-	private static final String NAMESPACE = "MmeberMapper.";
+	private static final String NAMESPACE = "MmeberMapper."; // mapper의 namespace와 동일
 	
 	@Override
 	public MemberDTO login(MemberDTO memberDTO) throws Exception {

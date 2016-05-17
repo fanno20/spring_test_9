@@ -10,7 +10,6 @@ import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 import com.hsh.member.MemberDTO;
 
 public class TestInterCeptor extends HandlerInterceptorAdapter{
-
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 		throws Exception {
