@@ -2,31 +2,33 @@ package com.hsh.board;
 
 public class MakePage {
 
-	private int start;
-	private int last;
+	private int startRow;
+	private int lastRow;
 	private int startNum;
 	private int lastNum;
 	private int totalBlock;
 	private int curBlock;
-	
+	private int perPage;
+	private int perBlock;
 	public MakePage() {	}
 	public MakePage(int curPage, int totalList){
-		int perPage = 10;
-		start = (curPage - 1) * perPage + 1;
-		last = curPage * perPage;
+		perPage = 10;
+		perBlock = 10;
+		setMember(curPage, totalList);
+	}
+	
+	private void setMember(int curPage, int totalList){
+		this.startRow = (curPage - 1) * perPage + 1;
+		this.lastRow = curPage * perPage;
 		int totalPage = sum(totalList, perPage);
-		totalBlock = sum(totalPage,perPage);
-		curBlock = sum(curPage, perPage);
-		startNum = (curBlock - 1) * perPage + 1;
+		totalBlock = sum(totalPage,perBlock);
+		curBlock = sum(curPage, perBlock);
+		startNum = (curBlock - 1) * perBlock + 1;
 		if(curBlock == totalBlock){
 			lastNum = totalPage;
 		}else{
-			lastNum = curBlock * perPage;
+			lastNum = curBlock * perBlock;
 		}
-		System.out.println("totalB" + totalBlock);
-		System.out.println();
-		System.out.println("start : "+ start + " last : " + last);
-		System.out.println("startNum : "+ startNum + " lastNum : " + lastNum);
 	}
 	
 	private int sum(int num1, int num2){
@@ -39,17 +41,23 @@ public class MakePage {
 		return num;
 	}
 	
-	public int getStart() {
-		return start;
+	public int getStartRow() {
+		return startRow;
 	}
-	public void setStart(int start) {
-		this.start = start;
+	public void setStartRow(int startRow) {
+		this.startRow = startRow;
 	}
-	public int getLast() {
-		return last;
+	public int getLastRow() {
+		return lastRow;
 	}
-	public void setLast(int last) {
-		this.last = last;
+	public void setLastRow(int lastRow) {
+		this.lastRow = lastRow;
+	}
+	public int getStartNum() {
+		return startNum;
+	}
+	public void setStartNum(int startNum) {
+		this.startNum = startNum;
 	}
 	public int getLastNum() {
 		return lastNum;
@@ -69,11 +77,10 @@ public class MakePage {
 	public void setCurBlock(int curBlock) {
 		this.curBlock = curBlock;
 	}
-
-	public int getStartNum() {
-		return startNum;
+	public int getPerPage() {
+		return perPage;
 	}
-	public void setStartNum(int startNum) {
-		this.startNum = startNum;
+	public void setPerPage(int perPage) {
+		this.perPage = perPage;
 	}
 }

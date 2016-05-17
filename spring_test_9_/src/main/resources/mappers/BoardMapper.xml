@@ -8,7 +8,7 @@
   	select * from 
   	(select rownum R, A.* from 
   	(select * from freeboard order by num) A )
-  	where R between #{start} and #{last}
+  	where R between #{startRow} and #{lastRow}
   </select>
   
   <select id="totalList" resultType="java.lang.Integer">

@@ -33,13 +33,13 @@
 </table>
 <div>
 	<c:if test="${page.curBlock > 1}">
-		<a>[이전]</a>
+		<a href="./boardList?curPage=${page.startNum-1}">[이전]</a>
 	</c:if>
 	<c:forEach begin="${page.startNum}" end="${page.lastNum}" var="i">
 		<a href="./boardList?curPage=${i}">${i}</a>
 	</c:forEach>
 	<c:if test="${page.lastNum < page.totalBlock}">
-		<a>[다음]</a>
+		<a href="./boardList?curPage=${page.lastNum+1}">[다음]</a>
 	</c:if>
 </div>
 
