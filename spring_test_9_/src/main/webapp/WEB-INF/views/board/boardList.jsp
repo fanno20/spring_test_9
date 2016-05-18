@@ -17,6 +17,17 @@
 </head>
 <body>
 <h2>board List</h2>
+<div>
+	<form action="./search" method="get">
+		<select name="searchType">
+			<option value="writer">작성자</option>
+			<option value="title">제목</option>
+			<option value="contents">내용</option>
+		</select>
+		<input type="text" name="searchWord">
+		<input type="submit" value="SEARCH">
+	</form>
+</div>
 <table class="table table-bordered">
 	<thead>
 		<tr><th>NUM</th><th>TITLE</th><th>WRITER</th></tr>
@@ -25,7 +36,10 @@
 		<c:forEach items="${list}" var="dto">
 			<tr>
 				<td>${dto.num}</td>
-				<td><a href="?num=${dto.num}">${dto.title}</a></td>
+				<td>
+					<c:forEach begin="0" end="${dto.depth}" step="1">&nbsp;&nbsp;</c:forEach>
+					<a href="boardView?num=${dto.num}">${dto.title}</a>
+				</td>
 				<td>${dto.writer}</td>
 			</tr>
 		</c:forEach>
@@ -43,6 +57,18 @@
 	</c:if>
 </div>
 
-<button type="button" class="btn btn-primary">글쓰기</button>
+<input type="button" class="btn btn-primary" name="write" id="write" value="글쓰기">
 </body>
+<script type="text/javascript">
+	$("#write").on('click',function(){
+		location.href = "boarWrite?type=${page.type}";
+	});
+</script>
 </html>
+
+
+
+
+
+
+

@@ -4,15 +4,45 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
 <mapper namespace="BoardMapper">
+  <select id="search" resultType="com.hsh.board.BoardDTO">
+  	select * from freeboard
+  	<where>
+  		<if test="searchType == 'title'.toString()">
+  			and title like CONCAT('%',CONCAT(#{searchWord},'%'))
+  		</if>
+  	</where>
+  </select>
+  
   <select id="list" resultType="com.hsh.board.BoardDTO">
   	select * from 
   	(select rownum R, A.* from 
-  	(select * from freeboard order by num) A )
+  	(select * from 
+  	<choose>
+  		<when test="type == null">
+  			freeboard
+  		</when>
+  		<otherwise>
+  			qnaboard
+  		</otherwise>
+  	</choose>
+  	order by ref, step asc) A )
   	where R between #{startRow} and #{lastRow}
   </select>
   
   <select id="totalList" resultType="java.lang.Integer">
   	select count(num) from freeboard
+  </select>
+  
+  <insert id="boardWrite" parameterType="com.hsh.board.BoardDTO">
+  	insert into 
+  	freeboard
+  	values
+  	(freeboard_seq.nextVal,#{writer},#{title},#{contents},
+  	freeboard_seq.currval,0,0,0,sysdate)
+  </insert>
+  
+  <select id="boardView" resultType="com.hsh.board.BoardDTO">
+  	select * from freeboard where num=#{num}
   </select>
 
 </mapper>

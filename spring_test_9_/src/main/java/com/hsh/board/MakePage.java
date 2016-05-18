@@ -1,7 +1,7 @@
 package com.hsh.board;
 
 public class MakePage {
-
+	private String type;
 	private int startRow;
 	private int lastRow;
 	private int startNum;
@@ -40,7 +40,18 @@ public class MakePage {
 		}
 		return num;
 	}
-	
+	public String getType() {
+		return type;
+	}
+	public void setType(String type) {
+		this.type = type;
+	}
+	public int getPerBlock() {
+		return perBlock;
+	}
+	public void setPerBlock(int perBlock) {
+		this.perBlock = perBlock;
+	}
 	public int getStartRow() {
 		return startRow;
 	}

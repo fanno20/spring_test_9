@@ -26,4 +26,21 @@ public class BoardDAOImpl implements BoardDAO {
 		return sqlSession.selectOne(SPACENAME+"totalList");
 	}
 
+	@Override
+	public void boardWrite(BoardDTO boardDTO) throws Exception {
+		int num = sqlSession.insert(SPACENAME+"boardWrite", boardDTO);
+		System.out.println("num: "+num);
+	}
+
+	@Override
+	public BoardDTO boardView(int num) throws Exception {
+		return sqlSession.selectOne(SPACENAME+"boardView", num);
+	}
+
+	@Override
+	public List<BoardDTO> search(BoardSearchType boardSearchType) throws Exception {
+		List<BoardDTO> ar = sqlSession.selectList(SPACENAME+"search", boardSearchType);
+		return ar;
+	}
+
 }

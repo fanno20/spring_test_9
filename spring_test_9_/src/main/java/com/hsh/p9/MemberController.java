@@ -20,7 +20,7 @@ public class MemberController {
 	private MemberService memberService;
 	
 	@RequestMapping(value="loginForm", method=RequestMethod.GET)
-	public void loginForm(){ }
+	public void loginForm(){}
 	
 	@RequestMapping(value="/login", method=RequestMethod.POST)
 	public String login(@ModelAttribute MemberDTO memberDTO, HttpSession session, Model model){
@@ -33,5 +33,7 @@ public class MemberController {
 		memberService.logout(session);
 		return "redirect:/";
 	}
+	
+	
 	
 }

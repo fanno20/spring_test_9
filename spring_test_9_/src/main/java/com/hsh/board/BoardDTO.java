@@ -12,6 +12,7 @@ public class BoardDTO {
 	private int depth;
 	private int counts;
 	private Date reg_date;
+	
 	public int getNum() {
 		return num;
 	}

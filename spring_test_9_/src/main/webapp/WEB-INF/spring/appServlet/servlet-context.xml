@@ -24,6 +24,7 @@
 	<!-- interceptor bean -->
 	<!-- <beans:bean id="test" class="com.hsh.intercept.TestInterCeptor"></beans:bean> -->
 	<beans:bean id="loginInterceptor" class="com.hsh.intercept.LoginInterceptor"></beans:bean>
+	<beans:bean id="authInterceptor" class="com.hsh.intercept.AuthInterceptor"></beans:bean>
 	<!-- <bean id="test" class="com.hsh.intercept.TestInterCeptor"></bean> -->
 	<!-- <bean id="urlHandlerMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
 		<property name="interceptors">
@@ -37,6 +38,10 @@
 		<interceptor>
 			<mapping path="/member/login"/>
 			<beans:ref bean="loginInterceptor"/>		
+		</interceptor>
+		<interceptor>
+			<mapping path="/board/boardView"/>
+			<beans:ref bean="authInterceptor"/>
 		</interceptor>
 	</interceptors>
 	
