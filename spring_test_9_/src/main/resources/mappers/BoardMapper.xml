@@ -8,7 +8,9 @@
   	select * from freeboard
   	<where>
   		<if test="searchType == 'title'.toString()">
-  			and title like CONCAT('%',CONCAT(#{searchWord},'%'))
+  			and title like '%${searchWord}%'
+  			<!-- and title like '%' ||#{searchWord} || '%' -->
+  			<!-- and title like CONCAT('%',CONCAT(#{searchWord},'%')) -->
   		</if>
   	</where>
   </select>
