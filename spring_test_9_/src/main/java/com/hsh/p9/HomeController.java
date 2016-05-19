@@ -40,4 +40,10 @@ public class HomeController {
 		return "home";
 	}
 	
+	@RequestMapping("/iu/test2")
+	public void test2(){};
+	
+	@RequestMapping("/note/noteList")
+	public void noteList(){}
+	
 }

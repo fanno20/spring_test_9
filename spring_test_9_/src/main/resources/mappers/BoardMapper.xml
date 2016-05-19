@@ -4,15 +4,26 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
 <mapper namespace="BoardMapper">
-  <select id="search" resultType="com.hsh.board.BoardDTO">
-  	select * from freeboard
-  	<where>
-  		<if test="searchType == 'title'.toString()">
+  <sql id="test">
+  	<if test="searchType == 'title'.toString()">
   			and title like '%${searchWord}%'
   			<!-- and title like '%' ||#{searchWord} || '%' -->
   			<!-- and title like CONCAT('%',CONCAT(#{searchWord},'%')) -->
   		</if>
-  	</where>
+  </sql>
+  
+  <insert id=""></insert>
+  
+  <select id="search" resultType="com.hsh.board.BoardDTO">
+  	select * from freeboard where num > 0
+  	<include refid="test"></include>
+  	<!-- <where>
+  		<if test="searchType == 'title'.toString()">
+  			and title like '%${searchWord}%'
+  			and title like '%' ||#{searchWord} || '%'
+  			and title like CONCAT('%',CONCAT(#{searchWord},'%'))
+  		</if>
+  	</where> -->
   </select>
   
   <select id="list" resultType="com.hsh.board.BoardDTO">

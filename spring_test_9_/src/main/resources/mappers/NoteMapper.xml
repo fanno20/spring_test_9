@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="NoteMapper">
+	<insert id="write" parameterType="com.hsh.note.NoteDTO">
+		insert into note
+		(num,writer,title,contents)
+		values
+		(note_seq.nextVal,#{writer},#{title},#{contents})
+	</insert>
+
+	<select id="list" resultType="com.hsh.note.NoteDTO">
+		select * from note order by num desc
+	</select>
+
+	<select id="view" resultType="com.hsh.note.NoteDTO">
+		select * from note where num=#{num}
+	</select>
+
+</mapper>
