@@ -35,12 +35,12 @@ $(function(){
 		$.ajax({
 			url: "./write",
 			type: "POST",
-			headers:{
+			headers:{// 보낼 때
 				"Content-Type": "application/json",
 				"X-HTTP-Method-Override": "POST"
 			},
-			dataType:'text',
-			data : JSON.stringify({
+			dataType:'text',// 받을 때 
+			data : JSON.stringify({ // data를 json형식으로 보냄
 				writer: writer,
 				title: title,
 				contents: contents
