@@ -31,6 +31,7 @@
 
 <c:if test="${not empty sessionScope.member}">
 	<a href="./member/logout">LOGOUT</a>
+	<a href="./chat/chat">chatting</a>
 </c:if>
 
 <c:if test="${empty member}">

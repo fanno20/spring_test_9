@@ -5,11 +5,16 @@ import javax.inject.Inject;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
+import com.hsh.chat.ChattService;
+
 @Service
 public class BoardServiceImpl implements BoardService {
 
 	@Inject
 	private BoardDAO boardDAO;
+	
+	@Inject
+	private ChattService chattService;
 	
 	@Override
 	public void list(int curPage, Model model,String type) {
@@ -28,6 +33,7 @@ public class BoardServiceImpl implements BoardService {
 	public void boardWrite(BoardDTO boardDTO) {
 		try {
 			boardDAO.boardWrite(boardDTO);
+			chattService.onMessage("새글등록", null);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

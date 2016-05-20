@@ -46,4 +46,7 @@ public class HomeController {
 	@RequestMapping("/note/noteList")
 	public void noteList(){}
 	
+	@RequestMapping("/chat/chat")
+	public void chat(){}
+	
 }
