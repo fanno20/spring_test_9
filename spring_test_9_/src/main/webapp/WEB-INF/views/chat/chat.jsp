@@ -33,6 +33,7 @@ $(function(){
 	
 	function onMessage(event){
 		$("#messageWindow").val(textarea=textarea+"you : " + event.data + "\n");
+		$("#newItem").html("test_새글등록됨");
 	}
 	
 	$("#send").on('click',function(){
@@ -58,6 +59,6 @@ $(function(){
 		inputMessage: <input type="text" id="inputMessage">
 		<input type="button" value="send" id="send"><br>
 	</div>
-	
+	<span id="newItem"></span>
 </body>
 </html>
